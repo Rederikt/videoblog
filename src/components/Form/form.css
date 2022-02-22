@@ -1,0 +1,78 @@
+.login {
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    height: 100%;
+    width: 100%;
+}
+
+.login-window {
+    
+    background-color: white;
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;
+}
+
+.register-window {
+    
+    background-color: white;
+    display: flex;
+    justify-content: center;  
+    align-items: center;  
+    flex-direction: column;
+}
+
+.log-title {
+    position: relative;
+    margin-top: 3rem;
+    margin-bottom: 2rem;
+}
+
+.logo-auth {
+    max-height: 100px;
+}
+
+.auth-link {
+    padding-top: 1rem;
+}
+
+.or-break {
+    color: #999;
+    padding-top: 1rem;
+}
+
+
+@media only screen and (max-width: 600px) {
+    .login-window {
+        width: 100%;
+        height: 100%; 
+    }
+    
+}
+
+@media only screen and (min-width: 600px) {
+    .login {
+        background: rgb(228,245,252); /* Old browsers */
+        background: -moz-linear-gradient(-45deg, rgba(228,245,252,1) 0%, rgba(192,244,188,1) 42%, rgba(159,216,239,1) 68%, rgba(42,176,237,1) 100%); /* FF3.6-15 */
+        background: -webkit-linear-gradient(-45deg, rgba(228,245,252,1) 0%,rgba(192,244,188,1) 42%,rgba(159,216,239,1) 68%,rgba(42,176,237,1) 100%); /* Chrome10-25,Safari5.1-6 */
+        background: linear-gradient(135deg, rgba(228,245,252,1) 0%,rgba(192,244,188,1) 42%,rgba(159,216,239,1) 68%,rgba(42,176,237,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4f5fc', endColorstr='#2ab0ed',GradientType=1 )
+    }
+
+    .login-window {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+        width: 450px;
+        height: 600px; 
+    }
+
+    .register-window {
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        border-radius: 8px;
+        width: 450px;
+        height: 750px; 
+    }
+    
+}

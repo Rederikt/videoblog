@@ -1,0 +1,14 @@
+.inputs {
+    border: none;
+    border-bottom: 1px solid #aab353;
+    background-color: transparent;
+    color: white;
+    display: block;
+}
+
+.inputsfocus, textarea:focus, select:focus{
+    outline: none;
+}
+.inputs::placeholder {
+    color: rgba(255, 255, 255, 0.603);
+  }

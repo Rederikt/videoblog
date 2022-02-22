@@ -1,0 +1,114 @@
+    const inputName = useRef();
+    const inputDiameter = useRef();
+    const inputPopulation = useRef();
+    const inputOrbital = useRef();
+    const inputRotation = useRef();
+    const inputClimate = useRef();
+    
+    const initialState = {
+        planets: []
+    }
+
+    const reducer = (state, action) => {
+        switch(action.type) {
+            case 'uploadPlanets': 
+                return {
+                    planets: action.planets
+                }
+            
+            case 'add':
+                return {
+                    planets: action.planets
+                }
+                    
+            case 'delete':
+                return {
+                    planets: action.planets
+                }
+            case 'edit':
+                return {
+                    planets: action.planets
+                }
+            default:
+                return
+        }
+    };
+    const [state, dispatch] = useReducer(reducer, initialState);
+    // const [planetState, setPlanetState] = useState([])
+    useEffect(() => {
+        const storage = JSON.parse(localStorage.getItem("allPlanets")) || [];
+        dispatch({
+            type: 'uploadPlanets',
+            planets: storage
+        })
+
+    }, [])
+    
+    
+    const handleDelete = () => {
+        // event.preventDefault();
+        // state.planets.splice(i, 1)
+        state.planets.filter(planet => planet.id === id);
+        dispatch({
+            type: 'delete',
+            planets: state.planets
+        })
+        localStorage.setItem("allPlanets", JSON.stringify(state.planets))
+    }
+
+    const handleAdd = (event) => {
+        event.preventDefault();
+        state.planets.push(
+            {
+                id: Date.now(),
+                name: inputName.current.value,
+                diameter: inputDiameter.current.value,
+                population: inputPopulation.current.value,
+                orbital: inputOrbital.current.value,
+                rotation: inputRotation.current.value,
+                climate: inputClimate.current.value
+            })
+        dispatch({
+            type: 'add',
+            planets: state.planets
+        });
+        
+        
+        inputName.current.value = '';
+        inputDiameter.current.value = '';
+        inputPopulation.current.value = '';
+        inputOrbital.current.value = '';
+        inputRotation.current.value = '';
+        inputClimate.current.value = '';
+
+        localStorage.setItem("allPlanets", JSON.stringify(state.planets))
+    
+    }
+
+    const [editable, setEditable] = useState(false);
+
+    const handleEdit = () => {
+        let bool = editable != true;
+        setEditable(bool);
+    }
+    const handleSubmitEdit = (i) => {
+        // console.log(state.planets[i])
+        state.planets[i].name = inputName.current.value;
+        state.planets[i].diameter = inputDiameter.current.value;
+        state.planets[i].population = inputPopulation.current.value;
+        state.planets[i].orbital = inputOrbital.current.value;
+        state.planets[i].rotation = inputRotation.current.value;
+        state.planets[i].climate = inputClimate.current.value;
+        dispatch({
+            type: 'edit',
+            planets: state.planets
+        });
+        // inputName.current.value = '';
+        // inputDiameter.current.value = '';
+        // inputPopulation.current.value = '';
+        // inputOrbital.current.value = '';
+        // inputRotation.current.value = '';
+        // inputClimate.current.value = '';
+        console.log(state.planets[i]);
+        localStorage.setItem("allPlanets", JSON.stringify(state.planets))
+        setEditable(false)
